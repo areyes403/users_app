@@ -29,7 +29,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public User save(User user) {
+    public User create(User user) {
         return userRepository.save(user);
     }
 
@@ -44,4 +44,6 @@ public class UserServiceImpl implements UserService {
     public List<User> findAll() {
         return (List<User>) userRepository.findAll();
     }
+
+
 }
