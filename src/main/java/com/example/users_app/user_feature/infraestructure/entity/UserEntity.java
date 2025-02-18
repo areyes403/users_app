@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
+@Entity
 @Table(name = "users")
 @AllArgsConstructor
 public class UserEntity {
@@ -13,18 +14,14 @@ public class UserEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Long id;
-    @Column(name = "name")
+    @Column(name = "name", length = 25)
     private String name;
-    @Column(name = "lastName")
+    @Column(name = "lastName", length = 25)
     private String lastName;
-    @Column(name = "email")
+    @Column(name = "email", length = 25)
     private String email;
-    @Column(name = "username")
+    @Column(name = "username", length = 25)
     private String username;
     @Column(name = "password")
     private String password;
-
-    public static User toUser(){
-        return new User(0L,"","","","","");
-    }
 }

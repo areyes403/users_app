@@ -23,6 +23,7 @@ public class UserController {
     }
     @GetMapping(value = "{id}")
     public ResponseEntity<?> getUser(@PathVariable Long id){
+
         Optional<User> user = userService.findById(id);
         if (user.isPresent()){
             return ResponseEntity.status(HttpStatus.OK).body(user);
