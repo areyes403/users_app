@@ -3,12 +3,16 @@ package com.example.users_app.user_feature.infraestructure.entity;
 import com.example.users_app.user_feature.domain.model.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Entity
+@Builder
 @Table(name = "users")
 @AllArgsConstructor
+@NoArgsConstructor
 public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -24,4 +28,5 @@ public class UserEntity {
     private String username;
     @Column(name = "password")
     private String password;
+
 }

@@ -35,7 +35,15 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public User create(User user) {
-        UserEntity saved = userRepository.save(UserMapper.toUserEntity(user));
+        UserEntity entity = UserEntity
+                .builder()
+                .email(user.getEmail())
+                .password(user.getPassword())
+                .name(user.getName())
+                .lastName(user.getLastName())
+                .username(user.getUsername())
+                .build();
+        UserEntity saved = userRepository.save(entity);
         return UserMapper.toUser(saved);
     }
 
